@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="myWhite">#f5f9f6</color>
+    <color name="colorPrimary">#02D2FF</color>
+    <color name="colorPrimaryDark">#29BEFD</color>
+    <color name="colorAccent">#14eb00</color>
+    <color name="mainGreen">#00B135</color>
+    <color name="myGreen">#4CBF02</color>
+    <color name="myWhite">#f7f7f7</color>
+    <color name="myBlue">#32E7FF</color>
+    <color name="my_spinner_text_color">#FFFFFF</color>
 </resources>

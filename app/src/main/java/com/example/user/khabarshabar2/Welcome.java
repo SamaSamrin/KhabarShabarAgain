@@ -14,7 +14,7 @@ public class Welcome extends Activity {
     }
 
     public void goToLogin(View view){
-        Intent i = new Intent(Welcome.this, NavigationDrawer.class);
+        Intent i = new Intent(Welcome.this, Login.class);
         startActivity(i);
     }
 }
