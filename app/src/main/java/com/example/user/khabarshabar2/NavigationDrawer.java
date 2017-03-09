@@ -1,8 +1,10 @@
 package com.example.user.khabarshabar2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +14,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public String username = "default username" ;
+    private String email = "default@gmail.com";
+    private static final String TAG = "***ND***";
+
+    private  DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +31,16 @@ public class NavigationDrawer extends AppCompatActivity
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
+
+        Intent i = getIntent();
+        if(i != null) {
+            username = i.getStringExtra("username");
+            email = i.getStringExtra("email");
+        } else{
+            Log.e(TAG, "null intent");
+        }
+
+
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -32,7 +51,7 @@ public class NavigationDrawer extends AppCompatActivity
             }
         });*/
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -40,6 +59,28 @@ public class NavigationDrawer extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+        View v = getLayoutInflater().inflate(R.layout.nav_header_navigation_drawer, drawer ,false);
+        //inflate(the layout resource we need from another xml, the ViewGroup in this activity's xml that hosts the first resource, attachToRoot )
+        if(v != null) {
+            TextView usernameView = (TextView) v.findViewById(R.id.username_display);
+            if (usernameView != null) {
+                usernameView.setText(username);
+                Log.e(TAG, "The received username is: "+username);
+            } else
+                Log.e(TAG, "username View of drawer header is null");
+
+            TextView emailView = (TextView) v.findViewById(R.id.email_display);
+            if (emailView != null) {
+                emailView.setText(email);
+                Log.e(TAG, "the received email address is: "+email);
+            } else
+                Log.e(TAG, "email View of drawer header is null");
+        } else {
+            Log.e(TAG, "inflated view is null");
+        }
     }
 
     @Override
@@ -56,6 +97,25 @@ public class NavigationDrawer extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation_drawer, menu);
+        View v = getLayoutInflater().inflate(R.layout.nav_header_navigation_drawer, drawer ,false);
+        //inflate(the layout resource we need from another xml, the ViewGroup in this activity's xml that hosts the first resource, attachToRoot )
+        if(v != null) {
+            TextView usernameView = (TextView) v.findViewById(R.id.username_display);
+            if (usernameView != null) {
+                usernameView.setText(username);
+                Log.e(TAG, "The received username is: "+username);
+            } else
+                Log.e(TAG, "username View of drawer header is null");
+
+            TextView emailView = (TextView) v.findViewById(R.id.email_display);
+            if (emailView != null) {
+                emailView.setText(email);
+                Log.e(TAG, "the received email address is: "+email);
+            } else
+                Log.e(TAG, "email View of drawer header is null");
+        } else {
+            Log.e(TAG, "inflated view is null");
+        }
         return true;
     }
 

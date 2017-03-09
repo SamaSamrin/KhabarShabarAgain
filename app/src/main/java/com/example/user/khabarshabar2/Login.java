@@ -10,6 +10,7 @@ public class Login extends Activity {
 
     String emailInput;
     String passwordInput;
+    String username = "Sama Samrin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,11 @@ public class Login extends Activity {
         emailInput = emailInputField.getText().toString();
         passwordInput = passwordField.getText().toString();
 
+        //set username value, from given email address in database
+
         Intent i = new Intent(Login.this, NavigationDrawer.class);
+        i.putExtra("username", username);
+        i.putExtra("email", emailInput);
         startActivity(i);
     }
 
