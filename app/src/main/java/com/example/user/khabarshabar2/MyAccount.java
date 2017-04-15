@@ -1,5 +1,6 @@
 package com.example.user.khabarshabar2;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 
 /**
@@ -18,6 +21,10 @@ import android.view.ViewGroup;
  * Use the {@link MyAccount#newInstance} factory method to
  * create an instance of this fragment.
  */
+
+@SuppressLint("SetJavaScriptEnabled")
+//http://stackoverflow.com/questions/20138434/alternate-solution-for-setjavascriptenabledtrue
+
 public class MyAccount extends Fragment {
 
     private static final String TAG = "***MyAccount***";
@@ -68,7 +75,12 @@ public class MyAccount extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_account, container, false);
+        View v = inflater.inflate(R.layout.fragment_my_account, container, false);
+        WebView webView = (WebView) v.findViewById(R.id.webview_test);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.loadUrl("https://www.google.com");
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

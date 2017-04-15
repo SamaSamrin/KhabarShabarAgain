@@ -1,18 +1,31 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/food_history_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.khabarshabar2.FoodHistory">
+    tools:context="com.example.user.khabarshabar2.MyAccount">
 
     <!-- TODO: Update blank fragment layout -->
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_food_history"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:title="Food History" />
-</FrameLayout>
+
+    <Button
+        android:id="@+id/buttonTest"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="99dp"
+        android:text="Hello" />
+
+
+</RelativeLayout>
