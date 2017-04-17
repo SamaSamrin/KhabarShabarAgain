@@ -30,6 +30,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Login" />
         <activity android:name=".SignUp" />
+        <activity android:name=".CalculatorDemo" />
+        <activity android:name=".GuestPage"></activity>
     </application>
 
 </manifest>

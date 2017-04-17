@@ -32,8 +32,8 @@ public class Login extends Activity {
         startActivity(i);
     }
 
-    public void goToSignUp(View view){
-        Intent i = new Intent(Login.this, SignUp.class);
+    public void goToGuestPage(View view){
+        Intent i = new Intent(Login.this, GuestPage.class);
         startActivity(i);
     }
 }

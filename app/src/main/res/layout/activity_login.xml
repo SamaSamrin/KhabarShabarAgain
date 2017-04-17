@@ -100,18 +100,18 @@
         android:textAppearance="@style/MyButtonStyle"/>
 
     <TextView
-        android:text="Sign Up! "
+        android:id="@+id/guestPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/signUpText"
-        android:clickable="true"
-        android:textColor="@color/colorAccent"
         android:background="@android:color/transparent"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="goToGuestPage"
+        android:text="Try our Guest Option!"
+        android:textColor="@color/colorAccent"
         android:textStyle="normal|bold"
         android:layout_below="@+id/textnotamember"
-        android:layout_alignLeft="@+id/loginText"
-        android:layout_alignStart="@+id/loginText"
-        android:onClick="goToSignUp"/>
+        android:layout_toEndOf="@+id/passwordInputText" />
 
     <TextView
         android:text="Not a member? "
