@@ -90,14 +90,15 @@ public class GuestPage extends Activity {
     public void goToResultPage(View v){
         //getting inputs
         String heightFeet = heightFeetInput.getText().toString();
+        int heightFeetInt = Integer.parseInt(heightFeet);
         double tempFeet = Double.parseDouble(heightFeet);
         String heightInch = heightInchInput.getText().toString();
-        int temp = Integer.valueOf(heightInch);
+        int heightInchInt = Integer.valueOf(heightInch);
         double tempInch = 0.0;
-        if  (temp<=9 && temp>=0)
-            tempInch = (double) temp/10;
-        else if (temp>9)
-            tempInch = (double) temp/100;
+        if  (heightInchInt<=9 && heightInchInt>=0)
+            tempInch = (double) heightInchInt/10;
+        else if (heightInchInt>9)
+            tempInch = (double) heightInchInt/100;
         height = tempFeet + tempInch;
         String weightString = weightInput.getText().toString();
         weight = Double.parseDouble(weightString);// null object reference
@@ -105,6 +106,8 @@ public class GuestPage extends Activity {
         Intent i = new Intent(GuestPage.this, ResultPage.class);
         i.putExtra("gender", chosenGender);
         i.putExtra("age", chosenAge);
+        i.putExtra("heightFeet", heightFeetInt);
+        i.putExtra("heightInch", heightInchInt);
         i.putExtra("height", height);
         i.putExtra("weight", weight);
         startActivity(i);
