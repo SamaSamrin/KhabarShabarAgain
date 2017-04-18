@@ -21,23 +21,19 @@ public class GuestPage extends Activity {
 
     private TextView chosenAgeDisplay;
     private SeekBar ageSeekBar;
-    private RadioGroup genderRadioGroup;
     private EditText heightFeetInput;
     private EditText heightInchInput;
     private EditText weightInput;
 
     String chosenGender = "default gender";
     int chosenAge = 0;
-    int heightFeet = 0;
-    int heightInch = 0;
-    int weight = 0;
+    double height = 0.0;
+    double weight = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guest_page);
-
-        genderRadioGroup = (RadioGroup) findViewById(R.id.genderGroup);
 
         chosenAgeDisplay = (TextView) findViewById(R.id.chosenAgeDisplay);
         ageSeekBar = (SeekBar) findViewById(R.id.ageProgressBar);
@@ -46,7 +42,6 @@ public class GuestPage extends Activity {
         heightFeetInput = (EditText) findViewById(R.id.feetInput);
         heightInchInput = (EditText) findViewById(R.id.inchInput);
         weightInput = (EditText) findViewById(R.id.weightInput);
-        setAllOnClickListeners();
     }
 
     private void showChosenAge(){
@@ -91,16 +86,27 @@ public class GuestPage extends Activity {
         //Toast.makeText(this, chosenGender, Toast.LENGTH_LONG).show();//works
     }
 
-    private void setAllOnClickListeners(){
-
-
-
-    }
 
     public void goToResultPage(View v){
+        //getting inputs
+        String heightFeet = heightFeetInput.getText().toString();
+        double tempFeet = Double.parseDouble(heightFeet);
+        String heightInch = heightInchInput.getText().toString();
+        int temp = Integer.valueOf(heightInch);
+        double tempInch = 0.0;
+        if  (temp<=9 && temp>=0)
+            tempInch = (double) temp/10;
+        else if (temp>9)
+            tempInch = (double) temp/100;
+        height = tempFeet + tempInch;
+        String weightString = weightInput.getText().toString();
+        weight = Double.parseDouble(weightString);// null object reference
+        //sending intent
         Intent i = new Intent(GuestPage.this, ResultPage.class);
         i.putExtra("gender", chosenGender);
         i.putExtra("age", chosenAge);
+        i.putExtra("height", height);
+        i.putExtra("weight", weight);
         startActivity(i);
     }
 }

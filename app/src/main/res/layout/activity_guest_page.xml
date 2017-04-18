@@ -15,6 +15,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="8dp"
+        android:labelFor="@+id/radioGroup"
         android:paddingStart="10dp"
         android:paddingTop="10dp"
         android:text="Gender "
@@ -63,14 +64,15 @@
         android:id="@+id/ageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/genderText"
         android:layout_marginTop="65dp"
+        android:labelFor="@+id/ageProgressBar"
         android:paddingStart="10dp"
         android:text="Age "
         android:textColor="@color/myWhite"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/genderText"
-        android:layout_alignParentStart="true" />
+        android:textStyle="bold" />
 
     <SeekBar
         android:id="@+id/ageProgressBar"
@@ -183,6 +185,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/heightText"
         android:layout_marginTop="43dp"
+        android:labelFor="@+id/weightInput"
         android:paddingStart="10dp"
         android:text="Weight"
         android:textAlignment="center"
@@ -191,7 +194,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/weightInput"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_alignStart="@+id/feetInput"
@@ -209,7 +212,7 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/weightText"
-        android:layout_toEndOf="@+id/editText2"
+        android:layout_toEndOf="@+id/weightInput"
         android:text="kg"
         android:textAlignment="center"
         android:textColor="@color/myWhite"
