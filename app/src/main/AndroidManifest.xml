@@ -31,7 +31,8 @@
         <activity android:name=".Login" />
         <activity android:name=".SignUp" />
         <activity android:name=".CalculatorDemo" />
-        <activity android:name=".GuestPage"></activity>
+        <activity android:name=".GuestPage" />
+        <activity android:name=".ResultPage"></activity>
     </application>
 
 </manifest>

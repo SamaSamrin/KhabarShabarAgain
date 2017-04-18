@@ -25,28 +25,195 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="10dp"
         android:layout_alignBottom="@+id/genderText"
         android:layout_marginStart="55dp"
         android:layout_toEndOf="@+id/genderText"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/radioGroup">
 
         <RadioButton
             android:id="@+id/male"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/myWhite"
             android:checked="false"
+            android:paddingTop="10dp"
             android:text="Male"
             android:textColor="@color/myWhite"
             android:textSize="18sp"
-            app:buttonTint="@color/myWhite" />
+            android:textStyle="bold"
+            android:onClick="onSelectedRadioButton"/>
+
         <RadioButton
+            android:id="@+id/female"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:id="@+id/female"
+            android:paddingTop="10dp"
             android:text="Female"
             android:textColor="@color/myWhite"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:buttonTint="@color/myWhite"
+            android:onClick="onSelectedRadioButton"/>
 
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/ageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:paddingStart="10dp"
+        android:text="Age "
+        android:textColor="@color/myWhite"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/genderText"
+        android:layout_alignParentStart="true" />
+
+    <SeekBar
+        android:id="@+id/ageProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ageText"
+        android:layout_alignEnd="@+id/radioGroup"
+        android:layout_alignStart="@+id/radioGroup"
+        android:max="80"
+        android:progress="25"
+        android:progressTint="@color/myWhite"
+        android:thumb="@drawable/mark" />
+
+    <TextView
+        android:id="@+id/chosenAgeDisplay"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:layout_above="@+id/ageProgressBar"
+        android:layout_alignEnd="@+id/ageProgressBar"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="68dp"
+        android:text="25"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Body1"
+        android:textColor="@color/myWhite"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/seeResultButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See your ideal weight!"
+        android:textColor="@color/mainGreen"
+        android:textStyle="bold"
+        android:onClick="goToResultPage"
+        android:layout_below="@+id/kgText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp" />
+
+    <TextView
+        android:id="@+id/heightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ageText"
+        android:layout_marginTop="73dp"
+        android:paddingStart="10dp"
+        android:text="Height"
+        android:textColor="@color/myWhite"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/feetInput"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/heightText"
+        android:layout_alignBottom="@+id/heightText"
+        android:layout_alignStart="@+id/ageProgressBar"
+        android:background="@color/myWhite"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="@color/mainGreen"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/feetText"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/feetInput"
+        android:layout_alignTop="@+id/feetInput"
+        android:layout_toEndOf="@+id/feetInput"
+        android:text="ft."
+        android:textAlignment="center"
+        android:textColor="@color/myWhite"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/inchInput"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_alignBottom="@+id/feetText"
+        android:layout_alignTop="@+id/feetText"
+        android:layout_toEndOf="@+id/feetText"
+        android:background="@color/myWhite"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="@color/mainGreen" />
+
+    <TextView
+        android:id="@+id/inchText"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/inchInput"
+        android:layout_alignTop="@+id/inchInput"
+        android:layout_toEndOf="@+id/inchInput"
+        android:text="inch"
+        android:textAlignment="center"
+        android:textColor="@color/myWhite"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/weightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/heightText"
+        android:layout_marginTop="43dp"
+        android:paddingStart="10dp"
+        android:text="Weight"
+        android:textAlignment="center"
+        android:textColor="@color/myWhite"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/feetInput"
+        android:layout_alignTop="@+id/weightText"
+        android:layout_toStartOf="@+id/inchInput"
+        android:background="@color/myWhite"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textColor="@color/mainGreen"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/kgText"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/weightText"
+        android:layout_toEndOf="@+id/editText2"
+        android:text="kg"
+        android:textAlignment="center"
+        android:textColor="@color/myWhite"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </android.widget.RelativeLayout>
