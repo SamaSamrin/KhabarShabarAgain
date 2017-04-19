@@ -46,8 +46,8 @@ public class ResultPage extends Activity {
         result = mainCalcuation();
         TextView resultView = (TextView) findViewById(R.id.resultView);
         String smiley = "";
-        if(result.equals("normal"))
-            smiley = "weighed :D";
+        if(result.equals("normal weighed"))
+            smiley = ":D";
         else if (result.equals("moderately thin"))
             smiley = ":)";
         else

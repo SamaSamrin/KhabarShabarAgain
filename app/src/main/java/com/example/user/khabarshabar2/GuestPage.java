@@ -38,6 +38,8 @@ public class GuestPage extends Activity {
         chosenAgeDisplay = (TextView) findViewById(R.id.chosenAgeDisplay);
         ageSeekBar = (SeekBar) findViewById(R.id.ageProgressBar);
         showChosenAge();
+        if (chosenAge == 0)
+            chosenAge = 25;
 
         heightFeetInput = (EditText) findViewById(R.id.feetInput);
         heightInchInput = (EditText) findViewById(R.id.inchInput);
