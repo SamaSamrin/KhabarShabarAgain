@@ -164,7 +164,8 @@
         android:ems="10"
         android:inputType="number"
         android:textAlignment="center"
-        android:textColor="@color/mainGreen" />
+        android:textColor="@color/mainGreen"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/inchText"
