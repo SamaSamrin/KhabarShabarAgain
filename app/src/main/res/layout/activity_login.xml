@@ -38,38 +38,39 @@
         android:textSize="18sp" />
 
     <EditText
+        android:id="@+id/emailField"
+        style="@android:style/Widget.Material.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_marginRight="20dp"
-        android:layout_marginEnd="20dp"
-        android:id="@+id/emailField"
-        android:background="@android:color/white"
         android:layout_alignBaseline="@+id/emailInputText"
         android:layout_alignBottom="@+id/emailInputText"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:gravity="center"
         android:hint="Enter your email"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
-        style="@android:style/Widget.Material.EditText"
-        />
+        android:inputType="textEmailAddress"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2" />
 
     <EditText
+        android:id="@+id/passwordField"
+        style="@android:style/Widget.Material.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_marginTop="27dp"
-        android:id="@+id/passwordField"
-        android:layout_below="@+id/emailField"
+        android:layout_alignEnd="@+id/emailField"
         android:layout_alignLeft="@+id/emailField"
         android:layout_alignStart="@+id/emailField"
+        android:layout_below="@+id/emailField"
+        android:layout_marginTop="27dp"
         android:background="@android:color/white"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
-        android:layout_alignEnd="@+id/emailField"
-        style="@android:style/Widget.Material.EditText"
+        android:ems="10"
+        android:gravity="center"
         android:hint="Enter password "
+        android:inputType="textPassword"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
         android:textColor="@color/mainGreen" />
 
     <TextView

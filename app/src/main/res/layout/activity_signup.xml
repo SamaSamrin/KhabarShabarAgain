@@ -27,19 +27,20 @@
         android:textStyle="normal|bold" />
 
     <EditText
+        android:id="@+id/fullNameInputField"
+        style="@android:style/Widget.Material.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/fullNameInputField"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
-        android:background="@color/myWhite"
-        android:hint="Enter your full name"
-        style="@android:style/Widget.Material.EditText"
         android:layout_alignBaseline="@+id/fullNameInputPrompt"
         android:layout_alignBottom="@+id/fullNameInputPrompt"
         android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/emailInputField"
+        android:background="@color/myWhite"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter your full name"
+        android:inputType="textPersonName"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
         android:textColor="@color/mainGreen" />
 
     <TextView
@@ -55,19 +56,20 @@
         android:textStyle="normal|bold" />
 
     <EditText
+        android:id="@+id/emailInputField"
+        style="@android:style/Widget.Material.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_alignTop="@+id/emailInputPrompt"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/emailInputField"
         android:layout_alignBottom="@+id/emailInputPrompt"
-        android:background="@color/myWhite"
-        style="@android:style/Widget.Material.EditText"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
-        android:hint="Enter email address"
+        android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/passwordField"
+        android:layout_alignTop="@+id/emailInputPrompt"
+        android:background="@color/myWhite"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter email address"
+        android:inputType="textEmailAddress"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
         android:textColor="@color/mainGreen" />
 
     <TextView
@@ -83,20 +85,21 @@
         android:layout_alignParentStart="true" />
 
     <EditText
+        android:id="@+id/passwordField"
+        style="@android:style/Widget.Material.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/passwordField"
         android:layout_alignBottom="@+id/passwordPrompt"
-        android:layout_alignTop="@+id/passwordPrompt"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
-        android:background="@color/myWhite"
-        android:hint="Enter password"
+        android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/dateOfBirthInput"
-        android:textColor="@color/mainGreen"
-        style="@android:style/Widget.Material.EditText" />
+        android:layout_alignTop="@+id/passwordPrompt"
+        android:background="@color/myWhite"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter password"
+        android:inputType="textPassword"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+        android:textColor="@color/mainGreen" />
 
     <TextView
         android:text="Date of Birth : "
@@ -111,21 +114,22 @@
         android:textStyle="normal|bold" />
 
     <EditText
+        android:id="@+id/dateOfBirthInput"
+        style="@android:style/Widget.Material.EditText"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:layout_alignTop="@+id/dobPrompt"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/dateOfBirthInput"
         android:layout_alignBottom="@+id/dobPrompt"
-
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/dobPrompt"
         android:background="@color/myWhite"
+
         android:backgroundTint="@color/myWhite"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
-        android:textColor="@color/mainGreen"
+        android:ems="10"
+        android:gravity="center"
         android:hint="dd-mm-yy"
-        style="@android:style/Widget.Material.EditText" />
+        android:inputType="date"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+        android:textColor="@color/mainGreen" />
 
     <TextView
         android:text="Gender : "
