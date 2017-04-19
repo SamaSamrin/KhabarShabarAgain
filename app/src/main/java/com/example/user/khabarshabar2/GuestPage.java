@@ -84,7 +84,7 @@ public class GuestPage extends Activity {
                 }
                 break;
         }
-        Log.e(TAG, chosenGender);//works
+       // Log.e(TAG, chosenGender);//works
         //Toast.makeText(this, chosenGender, Toast.LENGTH_LONG).show();//works
     }
 

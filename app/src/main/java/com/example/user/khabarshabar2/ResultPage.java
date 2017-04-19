@@ -85,6 +85,7 @@ public class ResultPage extends Activity {
         double idealWeightNotRounded = (startingIdealWeightRange + endingIdealWeightRange) / 2.0 ;
         idealWeight = Math.round(idealWeightNotRounded*100.0)/100.0;
         Log.e(TAG, "ideal weight = "+String.valueOf(idealWeight));
+        //sending the weight result
         return tempResult;
     }
 
