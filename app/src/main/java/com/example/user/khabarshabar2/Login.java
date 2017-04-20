@@ -41,9 +41,10 @@ public class Login extends Activity {
         boolean temp = doesDatabaseExist(this, dbname);
         Log.e(TAG, "db exists? - "+String.valueOf(temp));//returns true
         //initiating helper class
-        SQLiteDatabase.CursorFactory factory = database. ; //HOW TO GET THE CURSOR FACTORY?
-        int version = database.getVersion();
-        helper = new DatabaseHelper(this, dbname, , version);//cant set the cursor factory
+        //SQLiteDatabase.CursorFactory factory = database.; //HOW TO GET THE CURSOR FACTORY?
+        int version = database.getVersion();//gives 0, needed >=1
+        helper = new DatabaseHelper(this, dbname, null, 1);
+        //how to set/get the cursor factory if not null
     }
 
     private boolean doesDatabaseExist(Context context, String dbname){
