@@ -33,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "username TEXT," +
                     "email TEXT," +
                     "password TEXT );");
-            Log.e(TAG, "table created");
+            Log.e(TAG, "table created");//DONE
         } catch (Exception e){
             e.printStackTrace();
             Log.e(TAG, "table not created");
@@ -45,14 +45,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put("email", "samasamrin@gmail.com");
             values.put("password", "123456");
             sqLiteDatabase.insert("Users", null, values);//users table-e value-gula dilam
-            Log.e(TAG, "inserted data successfully");
+            Log.e(TAG, "inserted data successfully");//DONE
         } catch (Exception e){
             e.printStackTrace();
             Log.e(TAG, "insert UNSUCCESSFUL");
         }
         //*****how to encrypt password?******
-        //extracting values from table
-       // :|  Cursor cursor = sqLiteDatabase.query(false, "Users", "username", );
 
     }
 
@@ -66,16 +64,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.db = db;
     }*/
 
-   private String queryGenerator(String keyword, String tableName,String[] columnNames, String[] dataTypes){
-       String query = keyword+" "+tableName+" ";
-       if (columnNames.length  != dataTypes.length)
-           query = "invalid";
-       else{
-           for(int i=0; i<columnNames.length; i++)
-               query = query + columnNames[i]+" "+dataTypes[i]+" , ";
-           query = query + ")";
-       }
-       return "";
+   private void manipualteData(){
+       //selecting values from table
+
+       //altering values in a cell
+
    }
 
     @Override
