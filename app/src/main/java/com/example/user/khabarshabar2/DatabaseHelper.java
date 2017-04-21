@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteCursor;
 import android.util.Log;
 import android.widget.Toast;
 
+import static android.R.attr.id;
+
 /**
  * Created by ASUS on 4/20/2017.
  */
@@ -66,8 +68,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
    private void manipualteData(){
        //selecting values from table
-
+       Cursor cursor = getReadableDatabase().rawQuery("SELECT username FROM Users ;", new String[] {"id"});
+       cursor.close();
        //altering values in a cell
+
+       //deleting a row
+
+       //adding a column
+
+       //joining tables
 
    }
 

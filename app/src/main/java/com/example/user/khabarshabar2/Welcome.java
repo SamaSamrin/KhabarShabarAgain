@@ -17,7 +17,7 @@ public class Welcome extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
         final ImageView iv = (ImageView) findViewById(R.id.coffee_image);
-        iv.setImageResource(R.drawable.coffecup);
+        iv.setImageResource(R.drawable.final_icon);
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide);
         iv.startAnimation(animation);
        /* iv.animate().rotationBy(30).start();

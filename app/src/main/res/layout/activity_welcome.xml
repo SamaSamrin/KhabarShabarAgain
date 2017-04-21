@@ -17,7 +17,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="93dp"
-        android:background="@drawable/coffecup"
+        android:background="@drawable/final_icon"
         android:clickable="true"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"

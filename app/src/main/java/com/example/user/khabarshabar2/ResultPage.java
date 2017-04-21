@@ -27,6 +27,7 @@ public class ResultPage extends Activity {
         setContentView(R.layout.activity_result_page);
 
         Intent i = getIntent();
+        
         gender = i.getStringExtra("gender");
         age = i.getIntExtra("age", 0);
         height = i.getDoubleExtra("height", 0.0);
