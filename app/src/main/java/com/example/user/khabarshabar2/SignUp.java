@@ -2,14 +2,19 @@ package com.example.user.khabarshabar2;
 
 import android.app.Activity;
 import android.content.Intent;
+import java.util.Calendar;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.TextView;
+
+import android.app.DatePickerDialog;
 
 public class SignUp extends Activity {
 
@@ -44,15 +49,22 @@ public class SignUp extends Activity {
         setContentView(R.layout.activity_signup);
 
         //populating spinners
+       /* Spinner dobDaysSpinner = (Spinner) findViewById(R.id.dobDaysSpinner);
+        Spinner dobMonthsSpinner = (Spinner) findViewById(R.id.dobMonthsSpinner);
+        Spinner dobYearsSpinner = (Spinner) findViewById(R.id.dobYearsSpinner);
+
+        ArrayAdapter<CharSequence> dobDaysAdapter = ArrayAdapter.createFromResource(this, R.array.days, android.R.layout.simple_spinner_dropdown_item);
+        dobDaysSpinner.setAdapter(dobDaysAdapter);
+
         Spinner goalTimeSpinner = (Spinner) findViewById(R.id.goalTimeSpinner);
         ArrayAdapter<CharSequence> goalTimesAdapter = ArrayAdapter.createFromResource(this, R.array.time_variants, android.R.layout.simple_spinner_dropdown_item);
-        goalTimeSpinner.setAdapter(goalTimesAdapter);
+        goalTimeSpinner.setAdapter(goalTimesAdapter);*/
 
         //setting view fields
         fullnameField = (EditText) findViewById(R.id.fullNameInputField);
         emailField = (EditText) findViewById(R.id.emailInputField);
         passwordField = (EditText) findViewById(R.id.passwordField);
-        dateOfBirthField = (EditText) findViewById(R.id.dateOfBirthInput);
+        //dateOfBirthField = (EditText) findViewById(R.id.dateOfBirthInput);
         heightInFeetField = (EditText) findViewById(R.id.heightInputFeet);
         heightInInchField = (EditText) findViewById(R.id.heightInputInch);
         weightField = (EditText) findViewById(R.id.weightInput);
@@ -85,6 +97,25 @@ public class SignUp extends Activity {
             idealWeightDisplay.setText("(your ideal weight - "+String.valueOf(idealweight)+")");
         }else{
             Log.e(TAG, "intent was null");
+        }
+    }
+
+    public void showDatePickerDialog(View v){
+        //trying to use date picker without fragment
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        //with fragment, but not working
+        DialogFragment dateFragment = new DatePicker();
+        FragmentActivity tempActivity = dateFragment.getActivity();
+        if(tempActivity!=null) {
+            FragmentManager manager = tempActivity.getSupportFragmentManager();//Attempt to invoke virtual method 'android.support.v4.app.FragmentManager android.support.v4.app.FragmentActivity.getSupportFragmentManager()' on a null object reference
+            //^not sure if this is right
+            dateFragment.show(manager, "datePicker");
+        } else{
+            Log.e(TAG, "null fragment activity");
         }
     }
 
