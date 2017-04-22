@@ -197,18 +197,20 @@
         android:textStyle="normal|bold" />
 
     <EditText
+        android:id="@+id/heightInputFeet"
+        style="@android:style/Widget.Material.EditText"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:layout_alignTop="@+id/heightPrompt"
-        android:layout_alignStart="@+id/genderGroup"
-        android:id="@+id/heightInputFeet"
         android:layout_alignBottom="@+id/heightPrompt"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+        android:layout_alignStart="@+id/genderGroup"
+        android:layout_alignTop="@+id/heightPrompt"
         android:background="@color/myWhite"
-        android:textColor="@color/mainGreen"
-        style="@android:style/Widget.Material.EditText" />
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+        android:textColor="@color/mainGreen" />
 
     <TextView
         android:id="@+id/ft"
@@ -222,18 +224,20 @@
         android:textColor="@color/myWhite" />
 
     <EditText
+        android:id="@+id/heightInputInch"
+        style="@android:style/Widget.Material.EditText"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
+        android:layout_alignBottom="@+id/ft"
         android:layout_alignTop="@+id/ft"
         android:layout_toEndOf="@+id/ft"
-        android:id="@+id/heightInputInch"
-        android:layout_alignBottom="@+id/ft"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
         android:background="@color/myWhite"
-        android:textColor="@color/mainGreen"
-        style="@android:style/Widget.Material.EditText" />
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+        android:textColor="@color/mainGreen" />
 
     <TextView
         android:id="@+id/inch"
@@ -259,19 +263,20 @@
         android:textStyle="normal|bold" />
 
     <EditText
+        android:id="@+id/weightInput"
+        style="@android:style/Widget.Material.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:layout_alignTop="@+id/weightPrompt"
-        android:layout_alignStart="@+id/heightInputFeet"
-        android:id="@+id/weightInput"
         android:layout_alignBottom="@+id/weightPrompt"
+        android:layout_alignStart="@+id/heightInputFeet"
+        android:layout_alignTop="@+id/weightPrompt"
         android:layout_toStartOf="@+id/inch"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
         android:background="@color/myWhite"
-        android:textColor="@color/mainGreen"
-        style="@android:style/Widget.Material.EditText" />
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+        android:textColor="@color/mainGreen" />
 
     <TextView
         android:id="@+id/kg"
@@ -372,5 +377,16 @@
         android:layout_alignBottom="@+id/goalTextMiddle"
         android:layout_toEndOf="@+id/goalTextMiddle"
         style="@android:style/Widget.Material.EditText" />
+
+    <TextView
+        android:id="@+id/idealWeightDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/goalWeightInput"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:alpha="0.5"
+        android:text="ideal weight"
+        android:textColor="@color/myWhite" />
 
 </RelativeLayout>

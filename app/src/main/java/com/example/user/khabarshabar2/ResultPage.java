@@ -81,11 +81,11 @@ public class ResultPage extends Activity {
                 tempResult = "obese class 3";
         }
         //set the ideal weight for future use
-        double startingIdealWeightRange = 25*heightInMeters*heightInMeters;
-        double endingIdealWeightRange = 30*heightInMeters*heightInMeters;
+        double startingIdealWeightRange = 18.5*heightInMeters*heightInMeters;
+        double endingIdealWeightRange = 25*heightInMeters*heightInMeters;
         double idealWeightNotRounded = (startingIdealWeightRange + endingIdealWeightRange) / 2.0 ;
         idealWeight = Math.round(idealWeightNotRounded*100.0)/100.0;
-        Log.e(TAG, "ideal weight = "+String.valueOf(idealWeight));
+        Log.e(TAG, "ideal weight = "+String.valueOf(idealWeight)+" ideal range = "+String.valueOf(startingIdealWeightRange)+"-"+String.valueOf(endingIdealWeightRange));
         //sending the weight result
         return tempResult;
     }
@@ -95,6 +95,8 @@ public class ResultPage extends Activity {
         i.putExtra("gender", gender);
         i.putExtra("age", age);
         i.putExtra("height", height);
+        i.putExtra("heightInFeet", heightFeet);
+        i.putExtra("heightInInch", heightInch);
         i.putExtra("weight", weight);
         i.putExtra("idealWeight", idealWeight);
         startActivity(i);

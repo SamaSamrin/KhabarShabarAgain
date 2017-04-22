@@ -75,7 +75,7 @@ public class Login extends Activity {
 
         //set username value, from given email address in database
 
-        Intent i = new Intent(Login.this, NavigationDrawer.class);
+        Intent i = new Intent(Login.this, WeightDisplay.class);
         i.putExtra("username", username);
         i.putExtra("email", emailInput);
         startActivity(i);
