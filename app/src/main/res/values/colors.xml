@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#00cfea</color>
-    <color name="colorPrimaryDark">#29BEFD</color>
+    <color name="colorPrimaryDark">#29befd</color>
     <color name="colorAccent">#14eb00</color>
     <color name="mainGreen">#00b135</color>
     <color name="myGreen">#4CBF02</color>
     <color name="myWhite">#f7f7f7</color>
     <color name="myBlue">#32E7FF</color>
-    <color name="my_spinner_text_color">#FFFFFF</color>
+    <color name="my_spinner_text_color">#ffffff</color>
     <color name="coffee">#9e0000</color>
 </resources>

@@ -37,7 +37,7 @@ public class Login extends Activity {
         database = openOrCreateDatabase(dbname, MODE_PRIVATE, null);
         //^dbpath not working, needs root privileges : http://stackoverflow.com/questions/4452538/location-of-sqlite-database-on-the-device
         //so used db name instead
-        Log.e(TAG, "db path = "+dbpath);
+       // Log.e(TAG, "db path = "+dbpath);
         boolean temp = doesDatabaseExist(this, dbname);
         Log.e(TAG, "db exists? - "+String.valueOf(temp));//returns true
         //initiating helper class

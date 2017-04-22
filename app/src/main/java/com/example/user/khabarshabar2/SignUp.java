@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class SignUp extends Activity {
@@ -40,6 +42,12 @@ public class SignUp extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        //populating spinners
+        Spinner goalTimeSpinner = (Spinner) findViewById(R.id.goalTimeSpinner);
+        ArrayAdapter<CharSequence> goalTimesAdapter = ArrayAdapter.createFromResource(this, R.array.time_variants, android.R.layout.simple_spinner_dropdown_item);
+        goalTimeSpinner.setAdapter(goalTimesAdapter);
+
         //setting view fields
         fullnameField = (EditText) findViewById(R.id.fullNameInputField);
         emailField = (EditText) findViewById(R.id.emailInputField);
@@ -58,11 +66,10 @@ public class SignUp extends Activity {
         Intent i = getIntent();
         if(i!=null) {
             gender = i.getStringExtra("gender");
-            Log.e(TAG, "passed gender = "+gender);
+           // Log.e(TAG, "passed gender = "+gender);
             age = i.getIntExtra("age", 25);
             height = i.getDoubleExtra("height", 0.0);
             int tempHeightFeet = i.getIntExtra("heightInFeet", 0);
-
             int tempHeightInch = i.getIntExtra("heightInInch", 0);
             weight = i.getDoubleExtra("weight", 0.0);
             idealweight = i.getDoubleExtra("idealWeight", 0.0);
@@ -75,7 +82,7 @@ public class SignUp extends Activity {
             heightInFeetField.setText(String.valueOf(tempHeightFeet));
             heightInInchField.setText(String.valueOf(tempHeightInch));
             weightField.setText(String.valueOf(weight));
-            idealWeightDisplay.setText("your ideal weight - "+String.valueOf(idealweight));
+            idealWeightDisplay.setText("(your ideal weight - "+String.valueOf(idealweight)+")");
         }else{
             Log.e(TAG, "intent was null");
         }
