@@ -10,8 +10,10 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import android.app.DatePickerDialog;
@@ -54,11 +56,11 @@ public class SignUp extends Activity {
         Spinner dobYearsSpinner = (Spinner) findViewById(R.id.dobYearsSpinner);
 
         ArrayAdapter<CharSequence> dobDaysAdapter = ArrayAdapter.createFromResource(this, R.array.days, android.R.layout.simple_spinner_dropdown_item);
-        dobDaysSpinner.setAdapter(dobDaysAdapter);
+        dobDaysSpinner.setAdapter(dobDaysAdapter);*/
 
         Spinner goalTimeSpinner = (Spinner) findViewById(R.id.goalTimeSpinner);
         ArrayAdapter<CharSequence> goalTimesAdapter = ArrayAdapter.createFromResource(this, R.array.time_variants, android.R.layout.simple_spinner_dropdown_item);
-        goalTimeSpinner.setAdapter(goalTimesAdapter);*/
+        goalTimeSpinner.setAdapter(goalTimesAdapter);
 
         //setting view fields
         fullnameField = (EditText) findViewById(R.id.fullNameInputField);
