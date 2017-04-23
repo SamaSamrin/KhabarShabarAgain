@@ -5,18 +5,16 @@ import android.content.Intent;
 import java.util.Calendar;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import android.app.DatePickerDialog;
 
 public class SignUp extends Activity {
 
@@ -31,6 +29,9 @@ public class SignUp extends Activity {
     double height;
     double weight;
     double idealweight;
+    double goalWeightsToLose;
+    int goalTimeNumber;
+    String goalTimeUnit = "";
 
     EditText fullnameField;
     EditText emailField;
@@ -61,6 +62,23 @@ public class SignUp extends Activity {
         Spinner goalTimeSpinner = (Spinner) findViewById(R.id.goalTimeSpinner);
         ArrayAdapter<CharSequence> goalTimesAdapter = ArrayAdapter.createFromResource(this, R.array.time_variants, android.R.layout.simple_spinner_dropdown_item);
         goalTimeSpinner.setAdapter(goalTimesAdapter);
+        goalTimeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position==0)
+                    goalTimeUnit = "days";
+                else if(position==1)
+                    goalTimeUnit = "months";
+                else if(position==2)
+                    goalTimeUnit = "years";
+                Log.e(TAG, "goal time unit - "+goalTimeUnit);//working
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         //setting view fields
         fullnameField = (EditText) findViewById(R.id.fullNameInputField);
@@ -72,7 +90,7 @@ public class SignUp extends Activity {
         weightField = (EditText) findViewById(R.id.weightInput);
         goalWeightInput = (EditText) findViewById(R.id.goalWeightInput);
         goalTimeInput = (EditText) findViewById(R.id.goalTime);
-        idealWeightDisplay = (TextView) findViewById(R.id.idealWeightDisplay);
+        idealWeightDisplay = (TextView) findViewById(R.id.goalWeightDisplay);
 
         RadioButton male = (RadioButton) findViewById(R.id.maleRadioButton);
         RadioButton female = (RadioButton) findViewById(R.id.femaleRadioButton);
@@ -117,7 +135,7 @@ public class SignUp extends Activity {
             //^not sure if this is right
             dateFragment.show(manager, "datePicker");
         } else{
-            Log.e(TAG, "null fragment activity");
+            Log.e(TAG, "null fragment activity");//barbar null dicche, because dateFragment fragment-ke extend kore, Activity-ke extend korena ?
         }
     }
 
