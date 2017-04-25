@@ -16,7 +16,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class SignUp extends Activity {
+public class SignUp extends FragmentActivity {
 
     private final String TAG = "**Sign Up**";
 

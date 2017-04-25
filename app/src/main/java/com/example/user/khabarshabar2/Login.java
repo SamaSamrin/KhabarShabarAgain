@@ -29,7 +29,7 @@ public class Login extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //creating database
+        //creating or opening database
         String datapath = Environment.getDataDirectory().toString();
         String appname = getApplicationName(this);
         Log.e(TAG, "app name = "+appname);//DietBoss
@@ -45,7 +45,7 @@ public class Login extends Activity {
         int version = database.getVersion();//gives 0, needed >=1
         helper = new DatabaseHelper(this, dbname, null, 1);
         //how to set/get the cursor factory if not null
-        helper.onCreate(database);//manually calling for now to check db manipulations
+        //helper.onCreate(database);//manually calling for now to check db manipulations
     }
 
     private boolean doesDatabaseExist(Context context, String dbname){
