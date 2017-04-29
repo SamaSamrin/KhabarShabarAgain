@@ -104,17 +104,17 @@
         android:id="@+id/guestPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
+        android:layout_below="@+id/textnotamember"
+        android:layout_marginEnd="14dp"
+        android:layout_marginTop="20dp"
+        android:layout_toStartOf="@+id/orTextView"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:clickable="true"
         android:gravity="center"
         android:onClick="goToGuestPage"
         android:text="Try our Guest Option!"
-        android:textColor="@color/colorAccent"
-        android:textStyle="normal|bold"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/textnotamember"
-        android:layout_toStartOf="@+id/orTextView"
-        android:layout_marginEnd="14dp" />
+        android:textColor="@color/colorPrimary"
+        android:textStyle="normal|bold" />
 
     <TextView
         android:text="Not a member? "
@@ -128,16 +128,17 @@
 
     <TextView
         android:id="@+id/signUpPrompt"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:text="Sign Up!"
-        android:textColor="@color/colorAccent"
-        android:textStyle="bold"
+        android:layout_alignEnd="@+id/passwordField"
+        android:layout_alignTop="@+id/guestPrompt"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:clickable="true"
         android:onClick="goToSignUp"
-        android:layout_alignBaseline="@+id/orTextView"
-        android:layout_alignBottom="@+id/orTextView"
-        android:layout_toEndOf="@+id/textnotamember" />
+        android:text="Sign Up!"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/orTextView"
@@ -147,8 +148,7 @@
         android:textAlignment="center"
         android:textColor="@color/myWhite"
         android:textStyle="bold"
-        android:layout_alignBaseline="@+id/guestPrompt"
-        android:layout_alignBottom="@+id/guestPrompt"
-        android:layout_alignEnd="@+id/textnotamember"
-        android:layout_marginEnd="9dp" />
+        android:layout_alignTop="@+id/signUpPrompt"
+        android:layout_alignEnd="@+id/goButton"
+        android:layout_marginTop="15dp" />
 </RelativeLayout>
