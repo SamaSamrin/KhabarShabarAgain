@@ -104,7 +104,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
         this.db = db;
     }*/
 
-   private void manipulateData(){
+ /*  private void manipulateData(){
        //selecting values from table
        Cursor cursor = getReadableDatabase().rawQuery("SELECT username FROM Users ;", new String[] {"id"});
 
@@ -127,7 +127,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
 
    }
 
-/*   @Override
+//   @Override
 //    public SQLiteDatabase getReadableDatabase() {
 //        //to get access to the db, for reading
 //        return super.getReadableDatabase();

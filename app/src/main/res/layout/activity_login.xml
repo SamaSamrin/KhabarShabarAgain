@@ -111,8 +111,10 @@
         android:text="Try our Guest Option!"
         android:textColor="@color/colorAccent"
         android:textStyle="normal|bold"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/textnotamember"
-        android:layout_toEndOf="@+id/passwordInputText" />
+        android:layout_toStartOf="@+id/orTextView"
+        android:layout_marginEnd="14dp" />
 
     <TextView
         android:text="Not a member? "
@@ -122,6 +124,31 @@
         android:id="@+id/textnotamember"
         android:textColor="@android:color/white"
         android:layout_below="@+id/goButton"
-        android:layout_alignRight="@+id/goButton"
-        android:layout_alignEnd="@+id/goButton" />
+        android:layout_alignStart="@+id/loginText" />
+
+    <TextView
+        android:id="@+id/signUpPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:text="Sign Up!"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:onClick="goToSignUp"
+        android:layout_alignBaseline="@+id/orTextView"
+        android:layout_alignBottom="@+id/orTextView"
+        android:layout_toEndOf="@+id/textnotamember" />
+
+    <TextView
+        android:id="@+id/orTextView"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="or"
+        android:textAlignment="center"
+        android:textColor="@color/myWhite"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/guestPrompt"
+        android:layout_alignBottom="@+id/guestPrompt"
+        android:layout_alignEnd="@+id/textnotamember"
+        android:layout_marginEnd="9dp" />
 </RelativeLayout>

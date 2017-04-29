@@ -22,8 +22,7 @@ class UsersDataSource {
     private SQLiteDatabase database;
     private DatabaseHelper helper;
 
-    private String[] allColumns = {"_id", "username", "password", "email", "gender", "height", "initialWeight",
-            "goalweight", "currentWeight"};
+    private String[] allColumns = {"_id", "username", "password", "email", "gender", "height", "initialWeight", "goalWeight", "currentWeight"};
 
     //constructor
     UsersDataSource(Context context) {
@@ -38,13 +37,10 @@ class UsersDataSource {
         helper.close();
     }
 
-    User createUser(String username/*, String password*/){//shudhu username input nicchi for trial
-        //User user = new User(email, password);//redundant
+    User createUser(String username){//shudhu username input nicchi for trial
         ContentValues values = new ContentValues();
         values.put("username", username);
-        //values.put("password", password);
-        long id = database.insert("Users", null, values);//ERROR//
-        //^ arguments : tableName, nullColumnHack, ContentValues
+        long id = database.insert("Users", null, values);//arguments : tableName, nullColumnHack, ContentValues
         //returns the row id of the newly created row
         Cursor cursor = null;
         User user = null;
@@ -57,6 +53,64 @@ class UsersDataSource {
             Log.e(TAG, "id returned -1");
         }
         return user;
+    }
+
+    User createUser(String email, String password){//shudhu username input nicchi for trial
+        //User user = new User(email, password);//redundant
+        ContentValues values = new ContentValues();
+        values.put("email", email);
+        values.put("password", password);
+        long id = database.insert("Users", null, values);//arguments : tableName, nullColumnHack, ContentValues
+        //^ returns the row id of the newly created row
+        Cursor cursor = null;
+        User user = null;
+        if(id != -1) {
+            cursor = database.query("Users", allColumns, "_id  = " + id, null, null, null, null);//no such column: goalWeight (code 1): , while compiling: SELECT
+            cursor.moveToFirst();
+            user = cursorToUser(cursor);
+            user.id=id;
+            Log.e(TAG, "user created with id="+String.valueOf(id)+" email="+email+" password="+password);
+            cursor.close();
+        }else{
+            Log.e(TAG, "id returned -1");
+        }
+        return user;
+    }
+
+    void addInfoToUser(String email, String username, String gender, double height, double initialWeight){
+        ContentValues values = new ContentValues();
+        if(!username.equals(""))
+            values.put("username", username);
+        if(!gender.equals(""))
+            values.put("gender", gender);
+        if(height!=0.0)
+            values.put("height", height);
+        if(initialWeight!=0.0)
+            values.put("initialWeight", initialWeight);
+        User user = getUser(email);
+        long userId = user.getId();
+        int id = (int) database.insertWithOnConflict("Users", null, values, SQLiteDatabase.CONFLICT_IGNORE);
+        if (id == -1) {
+            database.update("Users", values, "_id=?", new String[] {String.valueOf(userId)});  // number 1 is the _id here, update to variable for your code
+        }else{
+            Log.e(TAG, "insert with conflict returned -1 ");
+        }
+        //user.username = username;
+
+    }
+
+    void setGoalWeightOfUser(String email, double goalWeight){
+        ContentValues values = new ContentValues();
+        if(goalWeight!=0.0)
+            values.put("goalWeight", goalWeight);
+        User user = getUser(email);
+        long userId = user.getId();
+        int id = (int) database.insertWithOnConflict("Users", null, values, SQLiteDatabase.CONFLICT_IGNORE);
+        if (id == -1) {
+            database.update("Users", values, "_id=?", new String[] {String.valueOf(userId)});  // number 1 is the _id here, update to variable for your code
+        }else{
+            Log.e(TAG, "insert with conflict returned -1 ");
+        }
     }
 
     void deleteUser(User user){
@@ -109,8 +163,20 @@ class UsersDataSource {
     }
 
 
-    User getUser(String username){
-        Cursor cursor = database.query("Users", allColumns,"username = ?", new String[] {username}, null, null, null );
+    User getUser(String email){
+        Cursor cursor = database.query("Users", allColumns,"email = "+email, null, null, null, null );//
+        cursor.moveToFirst();
+        User user = null;
+        while (!cursor.isAfterLast()) {
+            user = cursorToUser(cursor);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return  user;
+    }
+
+    User getUser(long id){
+        Cursor cursor = database.query("Users", allColumns,"_id = "+id, null, null, null, null );
         cursor.moveToFirst();
         User user = null;
         while (!cursor.isAfterLast()) {
@@ -123,7 +189,7 @@ class UsersDataSource {
 
     private User cursorToUser(Cursor cursor){
         User user = new User();
-        user.id = cursor.getLong(0);//ERROR//GONE but dont know why
+        user.id = cursor.getLong(0);
         user.username = cursor.getString(1);
         return user;
     }

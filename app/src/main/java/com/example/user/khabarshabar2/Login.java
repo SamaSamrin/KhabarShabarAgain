@@ -21,14 +21,20 @@ public class Login extends Activity {
     String emailInput = "default@email.com";
     String passwordInput = "123456";
     String username = "default name";
-    static SQLiteDatabase database;
-    DatabaseHelper helper;
-    String dbname = "DietBoss";
+    UsersDataSource usersDataSource;
+    EditText emailInputField;
+    EditText passwordField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        usersDataSource = new UsersDataSource(this);
+        usersDataSource.open();
+
+        emailInputField = (EditText) findViewById(R.id.emailField);
+        passwordField = (EditText) findViewById(R.id.passwordField);
         /*
         //creating or opening database
         String datapath = Environment.getDataDirectory().toString();
@@ -38,10 +44,10 @@ public class Login extends Activity {
         database = openOrCreateDatabase(dbname, MODE_PRIVATE, null);
         //^dbpath not working, needs root privileges : http://stackoverflow.com/questions/4452538/location-of-sqlite-database-on-the-device
         //so used db name instead
-       // Log.e(TAG, "db path = "+dbpath);*/
+       // Log.e(TAG, "db path = "+dbpath);
         boolean temp = doesDatabaseExist(this, dbname);
         Log.e(TAG, "db exists? - "+String.valueOf(temp));//returns true
-        /* //initiating helper class
+        ///initiating helper class
         //SQLiteDatabase.CursorFactory factory = database.; //HOW TO GET THE CURSOR FACTORY?
         int version = database.getVersion();//gives 0, needed >=1
         helper = new DatabaseHelper(this, dbname, null, 1);
@@ -68,13 +74,15 @@ public class Login extends Activity {
     }
 
     public void goOnClick(View view){
-        EditText emailInputField = (EditText) findViewById(R.id.emailField);
-        EditText passwordField = (EditText) findViewById(R.id.passwordField);
         emailInput = emailInputField.getText().toString();
         passwordInput = passwordField.getText().toString();
 
-        //set username value, from given email address in database
-
+        //match given email to database users email, to find the user
+        User user = usersDataSource.getUser(emailInput);
+        if(user==null) {
+            Log.e(TAG, "user not added in database");
+            Toast.makeText(this, "You are not a member yet. Click below to sign up!", Toast.LENGTH_LONG).show();
+        }
         Intent i = new Intent(Login.this, WeightDisplay.class);
         i.putExtra("username", username);
         i.putExtra("email", emailInput);
@@ -83,6 +91,11 @@ public class Login extends Activity {
 
     public void goToGuestPage(View view){
         Intent i = new Intent(Login.this, GuestPage.class);
+        startActivity(i);
+    }
+
+    public  void goToSignUp(View view){
+        Intent i = new Intent(Login.this, SignUp.class);
         startActivity(i);
     }
 }

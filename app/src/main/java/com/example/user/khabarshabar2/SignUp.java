@@ -20,6 +20,8 @@ public class SignUp extends FragmentActivity {
 
     private final String TAG = "**Sign Up**";
 
+    UsersDataSource usersDataSource;
+
     String userFullName;
     String email;
     String password;
@@ -43,13 +45,16 @@ public class SignUp extends FragmentActivity {
     EditText goalWeightInput;
     EditText goalTimeInput;
     TextView idealWeightDisplay;
-
+    boolean fromLoginActivity = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        usersDataSource = new UsersDataSource(this);
+        usersDataSource.open();
 
         //populating spinners
        /* Spinner dobDaysSpinner = (Spinner) findViewById(R.id.dobDaysSpinner);
@@ -96,7 +101,7 @@ public class SignUp extends FragmentActivity {
         RadioButton female = (RadioButton) findViewById(R.id.femaleRadioButton);
         //taking values from intent
         Intent i = getIntent();
-        if(i!=null) {
+        if(i.getExtras()!=null) {
             gender = i.getStringExtra("gender");
            // Log.e(TAG, "passed gender = "+gender);
             age = i.getIntExtra("age", 25);
@@ -116,6 +121,7 @@ public class SignUp extends FragmentActivity {
             weightField.setText(String.valueOf(weight));
             idealWeightDisplay.setText("(your ideal weight - "+String.valueOf(idealweight)+")");
         }else{
+            fromLoginActivity = true;
             Log.e(TAG, "intent was null");
         }
     }
@@ -143,9 +149,14 @@ public class SignUp extends FragmentActivity {
         userFullName = fullnameField.getText().toString();
         email = emailField.getText().toString();
         password = passwordField.getText().toString();
+        if(fromLoginActivity){
+            //take gender, height, weight, goalWeight, goalTime inputs
+        }
     }
 
     public void goBackToLogin(View view){
+        User user = usersDataSource.createUser(email, password);//no such column: goalWeight (code 1): , while compiling: SELECT
+        usersDataSource.addInfoToUser(email, userFullName, gender, height, weight);
         getAllInfo();
         Intent i = new Intent(SignUp.this, Login.class);
         startActivity(i);
