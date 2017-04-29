@@ -23,12 +23,13 @@ public class Login extends Activity {
     String username = "default name";
     static SQLiteDatabase database;
     DatabaseHelper helper;
-    String dbname = "DietBossDB";
+    String dbname = "DietBoss";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        /*
         //creating or opening database
         String datapath = Environment.getDataDirectory().toString();
         String appname = getApplicationName(this);
@@ -37,15 +38,14 @@ public class Login extends Activity {
         database = openOrCreateDatabase(dbname, MODE_PRIVATE, null);
         //^dbpath not working, needs root privileges : http://stackoverflow.com/questions/4452538/location-of-sqlite-database-on-the-device
         //so used db name instead
-       // Log.e(TAG, "db path = "+dbpath);
+       // Log.e(TAG, "db path = "+dbpath);*/
         boolean temp = doesDatabaseExist(this, dbname);
         Log.e(TAG, "db exists? - "+String.valueOf(temp));//returns true
-        //initiating helper class
+        /* //initiating helper class
         //SQLiteDatabase.CursorFactory factory = database.; //HOW TO GET THE CURSOR FACTORY?
         int version = database.getVersion();//gives 0, needed >=1
         helper = new DatabaseHelper(this, dbname, null, 1);
-        //how to set/get the cursor factory if not null
-        //helper.onCreate(database);//manually calling for now to check db manipulations
+        //how to set/get the cursor factory if not null*/
     }
 
     private boolean doesDatabaseExist(Context context, String dbname){

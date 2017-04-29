@@ -32,6 +32,10 @@ class DatabaseHelper extends SQLiteOpenHelper {
     static final int dbVersion = 1;
 
     //default constructor
+    DatabaseHelper(Context context){
+        super(context, dbName, null, dbVersion);
+    }
+
     DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, dbName, null, dbVersion);
     }
@@ -69,9 +73,10 @@ class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
             Log.e(TAG, "some table not created");
         }
-        //inserting values
+        /*//inserting values
         try {
-            ContentValues values = new ContentValues();
+            db.execSQL("INSERT ");
+            /*ContentValues values = new ContentValues();
             values.put("username", "Sama Samrin");
             values.put("email", "samasamrin@gmail.com");
             values.put("password", "123456");
@@ -86,7 +91,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
             Log.e(TAG, "insert UNSUCCESSFUL");
         }
         //*****how to encrypt password?******
-        manipulateData();
+        manipulateData();*/
     }
 
     @Override
@@ -122,7 +127,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
 
    }
 
-//    @Override
+/*   @Override
 //    public SQLiteDatabase getReadableDatabase() {
 //        //to get access to the db, for reading
 //        return super.getReadableDatabase();
@@ -132,5 +137,5 @@ class DatabaseHelper extends SQLiteOpenHelper {
 //    public SQLiteDatabase getWritableDatabase() {
 //        //to get access to the db, for writing
 //        return super.getWritableDatabase();
-//    }
+//    }*/
 }
